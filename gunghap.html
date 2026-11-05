@@ -40,7 +40,9 @@
 <script>
 (function () {
   var keep = /^(py|pm|pd|ph|pmin)=[0-9]{1,4}$|^pg=[MF]$/;
-  var q = location.hash.replace(/^#/, '').split('&').filter(function (kv) { return keep.test(kv); }).join('&');
+  var h = location.hash.replace(/^#/, '');
+  var q = /^[0-9a-z]{7}$/i.test(h) ? 'inv=' + h.toLowerCase()
+    : h.split('&').filter(function (kv) { return keep.test(kv); }).join('&');
   var android = /Android/i.test(navigator.userAgent || '');
   var intent = 'intent:///compatibility' + (q ? '?' + q : '') +
     '#Intent;scheme=sajubom;package=com.sajubom.app;S.browser_fallback_url=' + encodeURIComponent('https://play.google.com/store/apps/details?id=com.sajubom.app') + ';end';
@@ -51,7 +53,7 @@
     document.getElementById('ext').href = 'kakaotalk://web/openExternal?url=' + encodeURIComponent(location.href);
     document.getElementById('kakao').hidden = false;
   }
-  if (/(^|&)py=/.test(q)) setTimeout(function () { location.href = intent; }, 350);
+  if (/(^|&)(py|inv)=/.test(q)) setTimeout(function () { location.href = intent; }, 350);
 })();
 </script>
 </body>
