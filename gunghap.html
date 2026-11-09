@@ -31,10 +31,10 @@
   <div class="brand"><svg class="coin" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="24" fill="#9E4E52"/><circle cx="22" cy="24" r="11" fill="#F3E4CE"/><circle cx="27.5" cy="20.5" r="9.5" fill="#9E4E52"/><circle cx="33" cy="32" r="1.8" fill="#F3E4CE"/><circle cx="16.5" cy="15.5" r="1.1" fill="#F3E4CE"/></svg><span>사주봄</span></div>
   <h1>우리 궁합 보기</h1>
   <p>보낸 분의 생일이 담긴 궁합 초대예요. 사주봄 앱이 열리면 내 생일만 넣으면 두 사람의 궁합이 나와요.</p>
-  <a id="open" class="btn" href="https://play.google.com/store/apps/details?id=com.sajubom.app">사주봄 앱에서 열기</a>
+  <a id="open" class="btn" href="https://play.google.com/store/apps/details?id=net.sajubom.app">사주봄 앱에서 열기</a>
   <p id="kakao" class="sub" hidden>앱이 안 열리면 — <a id="ext" href="#">다른 브라우저로 열기</a></p>
   <p id="other" class="sub" hidden>사주봄은 안드로이드 앱이에요. 안드로이드 폰에서 이 링크를 열어 주세요.</p>
-  <p class="sub">앱이 없다면 — <a href="https://play.google.com/store/apps/details?id=com.sajubom.app">플레이 스토어에서 사주봄 받기</a></p>
+  <p class="sub">앱이 없다면 — <a href="https://play.google.com/store/apps/details?id=net.sajubom.app">플레이 스토어에서 사주봄 받기</a></p>
   <p class="note">이 페이지는 생일을 어디로도 보내지 않아요. 주소의 # 뒤에 담긴 값은 이 폰 안에서만 읽혀 앱으로 넘어가요.</p>
 </div>
 <script>
@@ -45,7 +45,7 @@
     : h.split('&').filter(function (kv) { return keep.test(kv); }).join('&');
   var android = /Android/i.test(navigator.userAgent || '');
   var intent = 'intent:///compatibility' + (q ? '?' + q : '') +
-    '#Intent;scheme=sajubom;package=com.sajubom.app;S.browser_fallback_url=' + encodeURIComponent('https://play.google.com/store/apps/details?id=com.sajubom.app') + ';end';
+    '#Intent;scheme=sajubom;package=net.sajubom.app;S.browser_fallback_url=' + encodeURIComponent('https://play.google.com/store/apps/details?id=net.sajubom.app') + ';end';
   var btn = document.getElementById('open');
   if (!android) { btn.hidden = true; document.getElementById('other').hidden = false; return; }
   btn.href = intent;
